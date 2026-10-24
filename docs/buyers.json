@@ -21,7 +21,8 @@
       "outreach_sent": true,
       "outreach_status": "sent_verified",
       "outreach_date": "2026-10-24",
-      "reply_received": false
+      "reply_received": false,
+      "delivery_status": "unconfirmed"
     },
     {
       "id": 2,
