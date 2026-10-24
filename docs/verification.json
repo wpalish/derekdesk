@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-24",
+  "stage": "local_self_hosted_web_workflow_verified",
+  "tests": {
+    "passed": 22,
+    "failed": 0
+  },
+  "browser": [
+    "create and approve synthetic RU/KK source",
+    "exact RU/KK source-backed answer",
+    "human request, queue reply and visitor retrieval",
+    "multiple case histories preserve private proofs",
+    "source/version/date remain alongside manual reply",
+    "two simultaneous queue labels have distinct IDs",
+    "translated Kazakh visitor chrome"
+  ],
+  "widths": [
+    1440,
+    1280,
+    390
+  ],
+  "review": {
+    "initial": "fix",
+    "final": "ship",
+    "scope": "four material fixes scored resolved; no new whole-surface review"
+  },
+  "documentation": [
+    "DESIGN.md",
+    ".impeccable/design.json"
+  ],
+  "data": "synthetic_only",
+  "public_server": false,
+  "external_channels": false,
+  "competitor_defects_confirmed": 0,
+  "potential_companies": 10,
+  "confirmed_customers": 0
+}

@@ -8,26 +8,24 @@ web
 
 ## Stack
 
-Техническая реализация делегирована владельцем в рамках последовательной разработки. Текущее ядро: JavaScript ES modules, Node.js 24.15–24.x, встроенный node:sqlite, Node test runner. Внешних зависимостей нет. Веб-слой ещё не реализован.
+Owner-delegated JavaScript ES modules, Node.js 24.15–24.x, built-in node:sqlite, HTTP and test runner. No external npm dependencies. Local-first self-hosted single-organization server.
 
 ## Users
 
-Владелец предложил сценарий Botpress: помощник на русском и казахском с передачей сложного вопроса сотруднику. Рабочая гипотеза текущего продукта — небольшой справочник компании: администратор утверждает правила, посетитель или сотрудник задаёт вопрос, оператор разбирает неизвестные случаи. Конкретная компания-пилот и её регламенты ещё не выбраны.
+Company administrator approves RU/KK knowledge; operators answer unknown questions; visitors retrieve their own answers by private proof. All current demonstration records are synthetic. No company pilot or demand is confirmed.
 
 ## Product Purpose
 
-Связать утверждённый ответ, источник, срок актуальности и передачу вопроса человеку. Сначала обеспечить проверяемый процесс, затем искать подходящие компании в СНГ. Не делать утверждений о проблемах Botpress без проверки.
+Connect exact approved text, its source, version and review date with a real employee reply. Botpress is a category reference, not copied code; no competitor defects are confirmed.
 
 ## Capabilities and Constraints
 
-13 автоматических тестов проверяют доменное ядро: RU/KK, одобрение, истечение срока, снимки версий, разделение области поиска, очередь, ручной ответ, атомарный импорт и сохранение SQLite. Ответ подбирается по явным формулировкам, без LLM и семантического поиска.
-
-HTTP-сервер, UI, сессии, роли, защищённый доступ к обращениям и браузерная проверка ещё впереди. Доменный параметр audience не является механизмом авторизации. До серверных проверок модуль не выставляется в Интернет. Реальные документы компании не загружались.
+22 passing domain, HTTP and snapshot tests. Browser create/approve/ask/handoff/reply/retrieve flows checked; post-review fixes preserve multiple case proofs, original source alongside human resolution, unique queue field labels and translated RU/KK visitor chrome. Literal normalized phrase matching, no LLM/semantic retrieval. Operator UI is Russian. Cookie sessions, CSRF/Origin checks, role enforcement and separate visitor access tokens.
 
 ## Evidence on Hand
 
-src/knowledge.js, tests/knowledge.test.js и example.js. Только вымышленные учебные данные. docs/reference-audit.md содержит официальные источники о Botpress; подтверждённых внутренних дефектов нет. docs/acceptance.md задаёт ещё не закрытые критерии веб-продукта.
+src/knowledge.js, src/server.js, src/snapshot.js, tests/, public/ and .impeccable/review/ (1440/1280/390 screenshots). Own synthetic data only; actual company materials not loaded. No public server or cloud availability claim; no WhatsApp, voice, payments, multi-tenancy, load test or external security audit.
 
-## Open Decisions
+## Operating Context
 
-Рабочее название DerekDesk не проходило проверку торговой марки. Публичное размещение сервера, реальный пилот, цена, коммерческая лицензия и платные провайдеры не определены. Новые расходы без поручения не создаются. Искать компании и опубликованные бизнес-каналы разрешено; отправлять обращения пока не разрешено.
+Owner authorized separate GitHub repositories and individual honest email proposals with preliminary non-binding estimates on 2026-10-24. Verify sender ashyqhub@gmail.com, source contacts, Sent history and refusals before sending. No new spend or binding contracts authorized. Work is part of the priority20 batch in ../../program/program-state.json.

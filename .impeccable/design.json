@@ -1,0 +1,391 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-24T12:37:12Z",
+  "title": "Design System: DerekDesk",
+  "extensions": {
+    "colorMeta": {
+      "navy": {
+        "role": "primary",
+        "displayName": "Register Navy",
+        "canonical": "#183e60",
+        "tonalRamp": [
+          "oklch(15.00% 0.07333 248.44)",
+          "oklch(26.43% 0.07333 248.44)",
+          "oklch(37.86% 0.07333 248.44)",
+          "oklch(49.29% 0.07333 248.44)",
+          "oklch(60.71% 0.07333 248.44)",
+          "oklch(72.14% 0.07333 248.44)",
+          "oklch(83.57% 0.07333 248.44)",
+          "oklch(95.00% 0.07333 248.44)"
+        ]
+      },
+      "link": {
+        "role": "primary",
+        "displayName": "Source Blue",
+        "canonical": "#174e7e",
+        "tonalRamp": [
+          "oklch(15.00% 0.09803 249.12)",
+          "oklch(26.43% 0.09803 249.12)",
+          "oklch(37.86% 0.09803 249.12)",
+          "oklch(49.29% 0.09803 249.12)",
+          "oklch(60.71% 0.09803 249.12)",
+          "oklch(72.14% 0.09803 249.12)",
+          "oklch(83.57% 0.09803 249.12)",
+          "oklch(95.00% 0.09803 249.12)"
+        ]
+      },
+      "approved": {
+        "role": "secondary",
+        "displayName": "Approved Teal",
+        "canonical": "#126653",
+        "tonalRamp": [
+          "oklch(15.00% 0.08204 173.03)",
+          "oklch(26.43% 0.08204 173.03)",
+          "oklch(37.86% 0.08204 173.03)",
+          "oklch(49.29% 0.08204 173.03)",
+          "oklch(60.71% 0.08204 173.03)",
+          "oklch(72.14% 0.08204 173.03)",
+          "oklch(83.57% 0.08204 173.03)",
+          "oklch(95.00% 0.08204 173.03)"
+        ]
+      },
+      "pending": {
+        "role": "secondary",
+        "displayName": "Review Amber",
+        "canonical": "#795200",
+        "tonalRamp": [
+          "oklch(15.00% 0.09818 77.06)",
+          "oklch(26.43% 0.09818 77.06)",
+          "oklch(37.86% 0.09818 77.06)",
+          "oklch(49.29% 0.09818 77.06)",
+          "oklch(60.71% 0.09818 77.06)",
+          "oklch(72.14% 0.09818 77.06)",
+          "oklch(83.57% 0.09818 77.06)",
+          "oklch(95.00% 0.09818 77.06)"
+        ]
+      },
+      "ground": {
+        "role": "neutral",
+        "displayName": "Cool Ground",
+        "canonical": "#edf3f8",
+        "tonalRamp": [
+          "oklch(15.00% 0.00929 242.84)",
+          "oklch(26.43% 0.00929 242.84)",
+          "oklch(37.86% 0.00929 242.84)",
+          "oklch(49.29% 0.00929 242.84)",
+          "oklch(60.71% 0.00929 242.84)",
+          "oklch(72.14% 0.00929 242.84)",
+          "oklch(83.57% 0.00929 242.84)",
+          "oklch(95.00% 0.00929 242.84)"
+        ]
+      },
+      "navigation": {
+        "role": "neutral",
+        "displayName": "Navigation Wash",
+        "canonical": "#dce9f3",
+        "tonalRamp": [
+          "oklch(15.00% 0.01946 240.74)",
+          "oklch(26.43% 0.01946 240.74)",
+          "oklch(37.86% 0.01946 240.74)",
+          "oklch(49.29% 0.01946 240.74)",
+          "oklch(60.71% 0.01946 240.74)",
+          "oklch(72.14% 0.01946 240.74)",
+          "oklch(83.57% 0.01946 240.74)",
+          "oklch(95.00% 0.01946 240.74)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Reading White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 0.00)",
+          "oklch(26.43% 0.00000 0.00)",
+          "oklch(37.86% 0.00000 0.00)",
+          "oklch(49.29% 0.00000 0.00)",
+          "oklch(60.71% 0.00000 0.00)",
+          "oklch(72.14% 0.00000 0.00)",
+          "oklch(83.57% 0.00000 0.00)",
+          "oklch(95.00% 0.00000 0.00)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Register Ink",
+        "canonical": "#172e45",
+        "tonalRamp": [
+          "oklch(15.00% 0.05131 249.96)",
+          "oklch(26.43% 0.05131 249.96)",
+          "oklch(37.86% 0.05131 249.96)",
+          "oklch(49.29% 0.05131 249.96)",
+          "oklch(60.71% 0.05131 249.96)",
+          "oklch(72.14% 0.05131 249.96)",
+          "oklch(83.57% 0.05131 249.96)",
+          "oklch(95.00% 0.05131 249.96)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Supporting Ink",
+        "canonical": "#46627a",
+        "tonalRamp": [
+          "oklch(15.00% 0.05108 245.00)",
+          "oklch(26.43% 0.05108 245.00)",
+          "oklch(37.86% 0.05108 245.00)",
+          "oklch(49.29% 0.05108 245.00)",
+          "oklch(60.71% 0.05108 245.00)",
+          "oklch(72.14% 0.05108 245.00)",
+          "oklch(83.57% 0.05108 245.00)",
+          "oklch(95.00% 0.05108 245.00)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Quiet Rule",
+        "canonical": "#b9cbd9",
+        "tonalRamp": [
+          "oklch(15.00% 0.02775 241.23)",
+          "oklch(26.43% 0.02775 241.23)",
+          "oklch(37.86% 0.02775 241.23)",
+          "oklch(49.29% 0.02775 241.23)",
+          "oklch(60.71% 0.02775 241.23)",
+          "oklch(72.14% 0.02775 241.23)",
+          "oklch(83.57% 0.02775 241.23)",
+          "oklch(95.00% 0.02775 241.23)"
+        ]
+      },
+      "field-line": {
+        "role": "neutral",
+        "displayName": "Field Rule",
+        "canonical": "#7894aa",
+        "tonalRamp": [
+          "oklch(15.00% 0.04565 242.07)",
+          "oklch(26.43% 0.04565 242.07)",
+          "oklch(37.86% 0.04565 242.07)",
+          "oklch(49.29% 0.04565 242.07)",
+          "oklch(60.71% 0.04565 242.07)",
+          "oklch(72.14% 0.04565 242.07)",
+          "oklch(83.57% 0.04565 242.07)",
+          "oklch(95.00% 0.04565 242.07)"
+        ]
+      },
+      "error": {
+        "role": "semantic",
+        "displayName": "Error Ink",
+        "canonical": "#942721",
+        "tonalRamp": [
+          "oklch(15.00% 0.14583 27.85)",
+          "oklch(26.43% 0.14583 27.85)",
+          "oklch(37.86% 0.14583 27.85)",
+          "oklch(49.29% 0.14583 27.85)",
+          "oklch(60.71% 0.14583 27.85)",
+          "oklch(72.14% 0.14583 27.85)",
+          "oklch(83.57% 0.14583 27.85)",
+          "oklch(95.00% 0.14583 27.85)"
+        ]
+      },
+      "focus": {
+        "role": "semantic",
+        "displayName": "Focus Copper",
+        "canonical": "#bd671a",
+        "tonalRamp": [
+          "oklch(15.00% 0.13748 55.87)",
+          "oklch(26.43% 0.13748 55.87)",
+          "oklch(37.86% 0.13748 55.87)",
+          "oklch(49.29% 0.13748 55.87)",
+          "oklch(60.71% 0.13748 55.87)",
+          "oklch(72.14% 0.13748 55.87)",
+          "oklch(83.57% 0.13748 55.87)",
+          "oklch(95.00% 0.13748 55.87)"
+        ]
+      },
+      "selection-ground": {
+        "role": "neutral",
+        "displayName": "Selection Mint",
+        "canonical": "#b7ded2",
+        "tonalRamp": [
+          "oklch(15.00% 0.04409 174.61)",
+          "oklch(26.43% 0.04409 174.61)",
+          "oklch(37.86% 0.04409 174.61)",
+          "oklch(49.29% 0.04409 174.61)",
+          "oklch(60.71% 0.04409 174.61)",
+          "oklch(72.14% 0.04409 174.61)",
+          "oklch(83.57% 0.04409 174.61)",
+          "oklch(95.00% 0.04409 174.61)"
+        ]
+      },
+      "selection-ink": {
+        "role": "neutral",
+        "displayName": "Selection Ink",
+        "canonical": "#132f29",
+        "tonalRamp": [
+          "oklch(15.00% 0.03602 177.75)",
+          "oklch(26.43% 0.03602 177.75)",
+          "oklch(37.86% 0.03602 177.75)",
+          "oklch(49.29% 0.03602 177.75)",
+          "oklch(60.71% 0.03602 177.75)",
+          "oklch(72.14% 0.03602 177.75)",
+          "oklch(83.57% 0.03602 177.75)",
+          "oklch(95.00% 0.03602 177.75)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Task heading",
+        "purpose": "Current task h1; explicit clamp, line height and tracking."
+      },
+      "section": {
+        "displayName": "Section heading",
+        "purpose": "Queue, materials and selected case state."
+      },
+      "entry-title": {
+        "displayName": "Entry title",
+        "purpose": "Body-sized bold title in repeated queue and material entries."
+      },
+      "body": {
+        "displayName": "Reading text",
+        "purpose": "Paragraphs and source excerpts, max 72ch; baseline size uses browser defaults."
+      },
+      "label": {
+        "displayName": "Control label",
+        "purpose": "Semibold labels and action text."
+      },
+      "muted": {
+        "displayName": "Supporting text",
+        "purpose": "Supporting explanations and record metadata."
+      },
+      "status": {
+        "displayName": "Written status",
+        "purpose": "Material status text, always accompanied by state wording."
+      },
+      "brand": {
+        "displayName": "Wordmark",
+        "purpose": "Text-only DerekDesk header link."
+      }
+    },
+    "shadows": [],
+    "motion": [],
+    "breakpoints": [
+      {
+        "name": "single-column-max",
+        "value": "700px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary action",
+      "kind": "button",
+      "description": "Solid navy action used for asking, saving or resolving.",
+      "html": "<button type=\"button\" class=\"ds-primary\">Найти ответ</button>",
+      "css": ".ds-primary{font:600 1rem system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;display:inline-block;min-height:44px;padding:.65rem 1rem;border:1px solid var(--navy,#183e60);border-radius:7px;cursor:pointer;background:var(--navy,#183e60);color:#fff}.ds-primary:hover{filter:brightness(1.13)}.ds-primary:focus-visible{outline:3px solid #bd671a;outline-offset:3px;}.ds-primary:disabled{cursor:wait;opacity:.55}",
+      "refersTo": "button-primary"
+    },
+    {
+      "name": "Secondary action",
+      "kind": "button",
+      "description": "Outlined navy action for refresh, return and the unselected language.",
+      "html": "<button type=\"button\" class=\"ds-secondary\">Проверить ответ сотрудника</button>",
+      "css": ".ds-secondary{font:600 1rem system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;display:inline-block;min-height:44px;padding:.65rem 1rem;border:1px solid var(--navy,#183e60);border-radius:7px;cursor:pointer;background:#fff;color:var(--navy,#183e60)}.ds-secondary:hover{filter:brightness(1.13)}.ds-secondary:focus-visible{outline:3px solid #bd671a;outline-offset:3px;}.ds-secondary:disabled{cursor:wait;opacity:.55}",
+      "refersTo": "button-secondary"
+    },
+    {
+      "name": "Labeled question field",
+      "kind": "input",
+      "description": "Full-width native textarea with an explicitly associated label.",
+      "html": "<div class=\"ds-question\"><label class=\"ds-question-label\" for=\"ds-question-value\">Ваш вопрос</label><textarea id=\"ds-question-value\" class=\"ds-question-value\" name=\"question\" required></textarea></div>",
+      "css": ".ds-question{font-family:system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;color:#172e45}.ds-question-label{display:block;font-weight:600;margin:0 0 .35rem}.ds-question-value{font:inherit;width:100%;min-height:100px;padding:.7rem;border:1px solid #7894aa;border-radius:7px;background:#fff;color:inherit;caret-color:#174e7e;resize:vertical}.ds-question-value:focus-visible{outline:3px solid #bd671a;outline-offset:3px;}",
+      "refersTo": "field"
+    },
+    {
+      "name": "Private case history",
+      "kind": "input",
+      "description": "Native case selector sits before the selected case; option text is the retained question.",
+      "html": "<div class=\"ds-history\"><label class=\"ds-history-label\" for=\"ds-history-value\">Обращения этой вкладки</label><select id=\"ds-history-value\" class=\"ds-history-value\"><option>Как перенести занятие?</option><option>Второй тестовый вопрос</option></select></div>",
+      "css": ".ds-history{font-family:system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;color:#172e45}.ds-history-label{display:block;font-weight:600;margin:0 0 .35rem}.ds-history-value{font:inherit;width:100%;padding:.7rem;border:1px solid #7894aa;border-radius:7px;background:#fff;color:inherit;caret-color:#174e7e}.ds-history-value:focus-visible{outline:3px solid #bd671a;outline-offset:3px;}",
+      "refersTo": "field"
+    },
+    {
+      "name": "Section navigation",
+      "kind": "nav",
+      "description": "A wash band with the current page shown as a white button.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Разделы\"><button type=\"button\" class=\"ds-nav-button\" aria-current=\"page\">Задать вопрос</button><button type=\"button\" class=\"ds-nav-button\">Кабинет сотрудника</button></nav>",
+      "css": ".ds-nav{display:flex;gap:.5rem;padding:.7rem 1.25rem;background:#dce9f3;border-bottom:1px solid var(--line,#b9cbd9);font-family:system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif}.ds-nav-button{font:600 1rem system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;display:inline-block;min-height:44px;padding:.65rem 1rem;border:1px solid var(--navy,#183e60);border-radius:7px;cursor:pointer;background:transparent;color:var(--navy,#183e60);border-color:transparent}.ds-nav-button[aria-current=page]{background:#fff;border-color:var(--line,#b9cbd9)}.ds-nav-button:hover{filter:brightness(1.13)}.ds-nav-button:focus-visible{outline:3px solid #bd671a;outline-offset:3px;}@media(max-width:700px){.ds-nav{padding:.6rem;flex-wrap:wrap}.ds-nav-button{flex:1;max-width:100%}}",
+      "refersTo": "navigation"
+    },
+    {
+      "name": "Reading panel",
+      "kind": "card",
+      "description": "Flat white container uses a thin rule and curved corners rather than a shadow.",
+      "html": "<section class=\"ds-panel\"><h2 class=\"ds-panel-title\">Материалы</h2><p class=\"ds-panel-copy\">Администратор добавляет источник и утверждает ответ.</p></section>",
+      "css": ".ds-panel{font-family:system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;color:#172e45;background:#fff;border:1px solid var(--line,#b9cbd9);border-radius:12px;padding:1.4rem;min-width:0}.ds-panel-title{font-size:1.3rem;margin:2rem 0 .75rem}.ds-panel-copy{max-width:72ch;line-height:1.6;margin:.5rem 0 1rem}@media(max-width:700px){.ds-panel{padding:1rem}}",
+      "refersTo": "panel"
+    },
+    {
+      "name": "Source evidence and employee reply",
+      "kind": "custom",
+      "description": "The original approved answer and its source remain above a separately identified human response. Synthetic specimen.",
+      "html": "<section class=\"ds-case\"><h3 class=\"ds-case-heading\">Первоначальный утверждённый ответ</h3><p class=\"ds-case-copy\">Для переноса учебного занятия напишите сотруднику. Это тестовый регламент.</p><div class=\"ds-evidence\"><strong>Источник</strong><a class=\"ds-source-link\" href=\"https://example.com/policy\" target=\"_blank\" rel=\"noopener noreferrer\">Вымышленный учебный регламент</a><p class=\"ds-case-copy\">Перенос оформляется через сотрудника учебного центра. Вымышленные данные.</p><small class=\"ds-case-small\">Проверить до: 24.10.2027 · v1</small></div><h3 class=\"ds-case-heading\">Сотрудник ответил</h3><p class=\"ds-case-copy\">Тестовый сотрудник подтвердил получение вопроса.</p><small class=\"ds-case-small\">24.10.2026, 17:29:39</small></section>",
+      "css": ".ds-case{font-family:system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;color:#172e45;background:#fff;padding:1.4rem;border:1px solid var(--line,#b9cbd9);border-radius:12px}.ds-case-heading{font-size:1.17em;margin:1em 0;font-weight:700}.ds-case-copy{max-width:72ch;line-height:1.6;margin:.5rem 0 1rem;white-space:pre-wrap}.ds-evidence{border-top:1px solid var(--line,#b9cbd9);padding-top:1rem;margin-top:1rem;display:grid;gap:.4rem}.ds-source-link{color:#174e7e;text-underline-offset:.2em}.ds-source-link:focus-visible{outline:3px solid #bd671a;outline-offset:3px;}.ds-case-small{display:block;font-size:smaller;line-height:1.5}@media(max-width:700px){.ds-case{padding:1rem}}"
+    },
+    {
+      "name": "Queue entry",
+      "kind": "custom",
+      "description": "Repeated replies are separated by rules and retain unique label/control associations. Synthetic specimen.",
+      "html": "<article class=\"ds-entry\"><h3 class=\"ds-entry-title\">Первый дополнительный тестовый вопрос</h3><p class=\"ds-entry-meta\">RU · 24.10.2026, 17:30:20</p><form><label class=\"ds-entry-label\" for=\"ds-entry-reply-1\">Ответ сотрудника (RU)</label><textarea id=\"ds-entry-reply-1\" name=\"reply\" class=\"ds-entry-reply\" required></textarea><div class=\"ds-entry-actions\"><button type=\"button\" class=\"ds-entry-submit\">Ответить и закрыть</button></div></form></article>",
+      "css": ".ds-entry{font-family:system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;color:#172e45;padding:1rem 0;border-bottom:1px solid var(--line,#b9cbd9)}.ds-entry-title{font-size:1rem;margin:0 0 .5rem}.ds-entry-meta{font-size:.9rem;color:#46627a;line-height:1.6;margin:.5rem 0 1rem}.ds-entry-label{display:block;font-weight:600;margin:1rem 0 .35rem}.ds-entry-reply{font:inherit;width:100%;min-height:100px;padding:.7rem;border:1px solid #7894aa;border-radius:7px;color:inherit;background:#fff;caret-color:#174e7e;resize:vertical}.ds-entry-actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}.ds-entry-submit{font:600 1rem system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;display:inline-block;min-height:44px;padding:.65rem 1rem;border:1px solid var(--navy,#183e60);border-radius:7px;cursor:pointer;background:var(--navy,#183e60);color:#fff}.ds-entry-submit:hover{filter:brightness(1.13)}.ds-entry-submit:disabled{cursor:wait;opacity:.55}.ds-entry-submit:focus-visible,.ds-entry-reply:focus-visible{outline:3px solid #bd671a;outline-offset:3px;}"
+    },
+    {
+      "name": "Error notice",
+      "kind": "custom",
+      "description": "Effective populated-notice styling: red text on white. Error appearance is extracted from the cascade, not captured visually.",
+      "html": "<div class=\"ds-notice\" role=\"status\" aria-live=\"polite\" tabindex=\"-1\">Ошибка запроса.</div>",
+      "css": ".ds-notice{font-family:system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;color:#942721;background:#fff;border:1px solid var(--line,#b9cbd9);border-radius:7px;padding:1rem;margin-bottom:1rem}.ds-notice:focus-visible{outline:3px solid #bd671a;outline-offset:3px;}",
+      "refersTo": "notice-error"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Public Reference Register",
+    "overview": "DerekDesk is a working register: deep ink-blue navigation above cool pale-blue ground, with white areas for writing and reading. System typography, explicit labels and quiet rules keep the attention on the question, approved text and its source. The authority comes from visible provenance and actual status.\n\nThe signature is a connected source block containing a link, authored excerpt, version and review deadline. An employee reply follows as a separately headed, timestamped response; it does not replace that original evidence. RU and KK visitor chrome share the same visual hierarchy, while source material retains its authored language. The register has no ornamental imagery, gradients, card shadows or ambient animation in the current implementation.\n\nThis is a scan of the built `public/index.html`, `public/styles.css` and `public/app.js`, grounded by `.impeccable/surface.md` (candidate 5; `seed:3c78d412b26a4ca6`). No approved comp or QUALITY BAR card was supplied. The final `.impeccable/review/verdict-pass.md` clears the four listed fixes at the supplied capture scope; it is not a new whole-surface review. The opened evidence is `desktop.png` (1440-wide), `user-1280.png` (1280-wide), `mobile.png` (390-wide), `kazakh-chrome.png` and `multi-case-queue.png`. Focus, error and long-content treatments below are code-derived, not newly browser-verified. All captured business records are synthetic.",
+    "keyCharacteristics": [
+      "Cool reading ground and a stable navy shell.",
+      "Flat, ruled white panels with gently curved corners.",
+      "Explicit form labels and ordinary, legible web controls.",
+      "Approved evidence and human response remain visibly distinct.",
+      "Compact desktop work areas reflow into a complete phone reading order."
+    ],
+    "rules": [
+      {
+        "name": "The Written Status Rule",
+        "body": "Semantic color accompanies a written state; color does not carry the status alone. The current material list uses teal for both approved and draft text unless the material is expired, so teal must not be interpreted as proof of approval by itself.",
+        "section": "colors"
+      },
+      {
+        "name": "The Evidence Reading Rule",
+        "body": "Keep source excerpt, version and review deadline readable in the same flow as the approved answer. Do not reduce the evidence to an icon or hover-only disclosure.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Register Rule",
+        "body": "Use surface tone, spacing and rules to separate work. Preserve the flat treatment when extending the current world.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep approved text, linked source, excerpt, version and review deadline in one continuous reading flow.",
+      "Do keep an employee reply separately headed and timestamped beneath retained source evidence.",
+      "Do use a written status together with teal or amber.",
+      "Do retain explicit, uniquely associated labels and the shared visible focus outline.",
+      "Do preserve question/form before result when paired work areas stack on a phone.",
+      "Do localize visitor chrome while retaining source material in its authored language."
+    ],
+    "donts": [
+      "Don't add shadows, gradients or ambient motion to the current flat register vocabulary.",
+      "Don't turn every repeated entry into another rounded card.",
+      "Don't hide provenance behind an icon, tooltip or collapsed decorative badge.",
+      "Don't interpret teal text alone as an approval guarantee.",
+      "Don't present the supplied fix verdict as a full new surface review or a company pilot."
+    ]
+  }
+}

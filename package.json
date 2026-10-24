@@ -1,9 +1,16 @@
 {
   "name": "derekdesk",
-  "version": "0.1.0-dev.1",
+  "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Development-stage RU/KK knowledge and escalation engine; no web application released yet",
-  "engines": {"node": ">=24.15 <25"},
-  "scripts": {"test": "node --test tests/*.test.js", "example": "node example.js"}
+  "description": "Self-hosted approved RU/KK answers with source expiry, authenticated operator queue and private visitor cases",
+  "engines": {
+    "node": ">=24.15 <25"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "example": "node example.js",
+    "start": "node src/server.js",
+    "snapshot": "node src/snapshot.js"
+  }
 }
