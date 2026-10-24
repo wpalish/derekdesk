@@ -1,0 +1,9 @@
+{
+  "name": "derekdesk",
+  "version": "0.1.0-dev.1",
+  "private": true,
+  "type": "module",
+  "description": "Development-stage RU/KK knowledge and escalation engine; no web application released yet",
+  "engines": {"node": ">=24.15 <25"},
+  "scripts": {"test": "node --test tests/*.test.js", "example": "node example.js"}
+}
