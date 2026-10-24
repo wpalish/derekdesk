@@ -20,7 +20,7 @@ Connect exact approved text, its source, version and review date with a real emp
 
 ## Capabilities and Constraints
 
-22 passing domain, HTTP and snapshot tests. Browser create/approve/ask/handoff/reply/retrieve flows checked; post-review fixes preserve multiple case proofs, original source alongside human resolution, unique queue field labels and translated RU/KK visitor chrome. Literal normalized phrase matching, no LLM/semantic retrieval. Operator UI is Russian. Cookie sessions, CSRF/Origin checks, role enforcement and separate visitor access tokens.
+24 passing domain, HTTP and snapshot tests. Browser create/approve/ask/handoff/reply/retrieve flows checked; post-review fixes preserve multiple case proofs, original source alongside human resolution, unique queue field labels and translated RU/KK visitor chrome. Admin can disable/re-enable operators: disabling revokes all sessions and login, persists across restart, preserves case history; re-enabling requires fresh login. Operators cannot change access, and the administrator cannot be disabled by this screen. Literal normalized phrase matching, no LLM/semantic retrieval. Operator UI is Russian. Cookie sessions, CSRF/Origin checks, role enforcement and separate visitor access tokens. No password reset UI.
 
 ## Evidence on Hand
 

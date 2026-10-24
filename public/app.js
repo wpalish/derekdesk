@@ -56,6 +56,10 @@ async function api(path, method = "GET", body, extra = {}) {
     ...(body ? { body: JSON.stringify(body) } : {}),
   });
   const data = await res.json();
+  if (res.status === 401 && user) {
+    user = null;
+    login();
+  }
   if (!res.ok) throw Error(data.error || "Ошибка запроса.");
   return data;
 }
@@ -471,6 +475,7 @@ async function workspace() {
         "secondary",
       ),
       button("Создать оператора", userForm, "secondary"),
+      button("Доступ операторов", accessManager, "secondary"),
     );
     right.append(operations);
     const label = E("label", "Восстановить знания как черновики"),
@@ -621,6 +626,61 @@ function articleForm(article) {
     }, submit);
   });
   screen.append(form);
+}
+async function accessManager() {
+  if (user?.role !== "admin") return workspace();
+  const { users } = await api("/api/users");
+  screen.replaceChildren(
+    E("h1", "Доступ операторов"),
+    E(
+      "p",
+      "Отключение прекращает все действующие сеансы оператора. История обращений и ответов сохраняется. Повторное разрешение входа требует нового входа с прежним паролем.",
+    ),
+  );
+  const controls = E("div", undefined, "actions");
+  controls.append(
+    button("Вернуться", workspace, "secondary"),
+    button("Создать оператора", userForm),
+  );
+  screen.append(controls);
+  const operators = users.filter((entry) => entry.role === "operator");
+  if (!operators.length)
+    screen.append(
+      E(
+        "p",
+        "Операторов пока нет. Создайте учётную запись для сотрудника.",
+        "muted",
+      ),
+    );
+  for (const entry of operators) {
+    const row = E("section", undefined, "entry");
+    row.append(
+      E("h2", entry.username, "access-name"),
+      E("p", entry.enabled ? "Вход разрешён" : "Доступ отключён"),
+    );
+    const action = button(
+      entry.enabled ? "Отключить вход" : "Разрешить вход",
+      async () => {
+        await api(
+          `/api/users/${encodeURIComponent(entry.username)}/access`,
+          "POST",
+          { enabled: !entry.enabled },
+        );
+        await accessManager();
+        notice.textContent = entry.enabled
+          ? "Вход отключён, все сеансы оператора прекращены."
+          : "Вход разрешён. Оператор должен войти заново.";
+      },
+      "secondary",
+    );
+    action.setAttribute(
+      "aria-label",
+      (entry.enabled ? "Отключить вход для " : "Разрешить вход для ") +
+        entry.username,
+    );
+    row.append(action);
+    screen.append(row);
+  }
 }
 function userForm() {
   screen.replaceChildren(E("h1", "Новый оператор"));

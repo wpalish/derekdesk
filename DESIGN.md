@@ -167,7 +167,7 @@ Paired tasks use a grid of `minmax(0, 1fr)` and `minmax(260px, .8fr)`, separated
 
 At 700px and below, paired work areas and form rows become one column. The task/form remains before its result, the work gap becomes 1.2rem, panel padding becomes 1rem, and main padding becomes 1.4rem vertically and 1rem horizontally. Navigation wraps with equal flexible buttons. The header aligns to the top; its descriptor becomes smaller and may wrap within 140px.
 
-Actions wrap with a 0.6rem gap and a 1rem top margin. Controls have a minimum 44px height; textareas start at 100px and resize vertically. Long answers preserve newlines; the separate `pre` treatment wraps long tokens. Do not assume arbitrary unbroken URLs have been visually stress-tested.
+Actions wrap with a 0.6rem gap and a 1rem top margin. Buttons and summaries have an explicit minimum 44px height; inputs and selects use the shared font and padding without an explicit minimum height. Textareas start at 100px and resize vertically. Long answers preserve newlines; the separate `pre` treatment wraps long tokens. Do not assume arbitrary unbroken URLs have been visually stress-tested.
 
 ## Elevation & Depth
 

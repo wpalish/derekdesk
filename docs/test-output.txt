@@ -2,141 +2,153 @@ TAP version 13
 # Subtest: draft knowledge never answers a visitor; the question enters the operator queue
 ok 1 - draft knowledge never answers a visitor; the question enters the operator queue
   ---
-  duration_ms: 14.578708
+  duration_ms: 3.00225
   type: 'test'
   ...
 # Subtest: RU and KK return the exact approved text and its source, not generated claims
 ok 2 - RU and KK return the exact approved text and its source, not generated claims
   ---
-  duration_ms: 1.148959
+  duration_ms: 0.766375
   type: 'test'
   ...
 # Subtest: a missing translation routes to a person rather than inventing translated policy
 ok 3 - a missing translation routes to a person rather than inventing translated policy
   ---
-  duration_ms: 0.788625
+  duration_ms: 0.260625
   type: 'test'
   ...
 # Subtest: expired material is excluded and cannot be approved without a new review
 ok 4 - expired material is excluded and cannot be approved without a new review
   ---
-  duration_ms: 0.810583
+  duration_ms: 0.348542
   type: 'test'
   ...
 # Subtest: an edit revokes approval and preserves the old answer and evidence snapshot
 ok 5 - an edit revokes approval and preserves the old answer and evidence snapshot
   ---
-  duration_ms: 0.487875
+  duration_ms: 0.544583
   type: 'test'
   ...
 # Subtest: staff-only content never enters public retrieval
 ok 6 - staff-only content never enters public retrieval
   ---
-  duration_ms: 0.296375
+  duration_ms: 0.271
   type: 'test'
   ...
 # Subtest: two matching approved answers cause a visible handoff rather than an arbitrary winner
 ok 7 - two matching approved answers cause a visible handoff rather than an arbitrary winner
   ---
-  duration_ms: 0.302584
+  duration_ms: 0.500583
   type: 'test'
   ...
 # Subtest: a visitor can request a person after a found answer; resolution records who replied
 ok 8 - a visitor can request a person after a found answer; resolution records who replied
   ---
-  duration_ms: 0.465042
+  duration_ms: 0.552584
   type: 'test'
   ...
 # Subtest: invalid batch imports make no partial changes and imported approval cannot bypass review
 ok 9 - invalid batch imports make no partial changes and imported approval cannot bypass review
   ---
-  duration_ms: 0.243583
+  duration_ms: 0.262291
   type: 'test'
   ...
 # Subtest: closing and reopening a file database preserves approved evidence and queued cases
 ok 10 - closing and reopening a file database preserves approved evidence and queued cases
   ---
-  duration_ms: 12.912458
+  duration_ms: 4.818625
   type: 'test'
   ...
 # Subtest: unsafe source links, future verification, and meaningless aliases are rejected
 ok 11 - unsafe source links, future verification, and meaningless aliases are rejected
   ---
-  duration_ms: 0.32375
+  duration_ms: 0.324375
   type: 'test'
   ...
 # Subtest: an unrelated SQLite database is rejected without changing its contents
 ok 12 - an unrelated SQLite database is rejected without changing its contents
   ---
-  duration_ms: 1.099625
+  duration_ms: 2.48925
   type: 'test'
   ...
 # Subtest: a future DerekDesk schema is rejected rather than silently downgraded
 ok 13 - a future DerekDesk schema is rejected rather than silently downgraded
   ---
-  duration_ms: 15.296167
+  duration_ms: 3.041
   type: 'test'
   ...
 # Subtest: anonymous visitors cannot read knowledge, queue, backup or create users
 ok 14 - anonymous visitors cannot read knowledge, queue, backup or create users
   ---
-  duration_ms: 75.866958
+  duration_ms: 42.006083
   type: 'test'
   ...
 # Subtest: origin and CSRF checks guard session mutations; cookie is HttpOnly and same-site
 ok 15 - origin and CSRF checks guard session mutations; cookie is HttpOnly and same-site
   ---
-  duration_ms: 60.60275
+  duration_ms: 55.518958
   type: 'test'
   ...
 # Subtest: operator can resolve a real queue entry but cannot approve knowledge or add accounts
 ok 16 - operator can resolve a real queue entry but cannot approve knowledge or add accounts
   ---
-  duration_ms: 91.011417
+  duration_ms: 96.154875
   type: 'test'
   ...
 # Subtest: case UUID alone and another visitor token do not expose a conversation
 ok 17 - case UUID alone and another visitor token do not expose a conversation
   ---
-  duration_ms: 28.564333
+  duration_ms: 29.67175
   type: 'test'
   ...
 # Subtest: public ask ignores forged staff audience and strips internal article snapshots
 ok 18 - public ask ignores forged staff audience and strips internal article snapshots
   ---
-  duration_ms: 50.272459
+  duration_ms: 51.480459
   type: 'test'
   ...
 # Subtest: knowledge backup restoration validates atomically and resets imported approval
 ok 19 - knowledge backup restoration validates atomically and resets imported approval
   ---
-  duration_ms: 46.973833
+  duration_ms: 47.773667
   type: 'test'
   ...
 # Subtest: server restart preserves case proof, operator reply and approved source
 ok 20 - server restart preserves case proof, operator reply and approved source
   ---
-  duration_ms: 24.0635
+  duration_ms: 24.337458
   type: 'test'
   ...
 # Subtest: expired sessions and repeated wrong passwords are rejected
 ok 21 - expired sessions and repeated wrong passwords are rejected
   ---
-  duration_ms: 177.8825
+  duration_ms: 168.633666
+  type: 'test'
+  ...
+# Subtest: admin can revoke every operator session without removing history; operators and visitors cannot change access
+ok 22 - admin can revoke every operator session without removing history; operators and visitors cannot change access
+  ---
+  duration_ms: 142.460792
+  type: 'test'
+  ...
+# Subtest: operator revocation remains effective after a real database restart
+ok 23 - operator revocation remains effective after a real database restart
+  ---
+  duration_ms: 84.599417
   type: 'test'
   ...
 # Subtest: online snapshot preserves a WAL-backed case and refuses to overwrite an existing backup
-ok 22 - online snapshot preserves a WAL-backed case and refuses to overwrite an existing backup
+ok 24 - online snapshot preserves a WAL-backed case and refuses to overwrite an existing backup
   ---
-  duration_ms: 20.528917
+  duration_ms: 5.748292
   type: 'test'
   ...
-1..22
-# tests 22
+1..24
+# tests 24
 # suites 0
-# pass 22
+# pass 24
 # fail 0
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 669.775584
+# duration_ms 790.208417

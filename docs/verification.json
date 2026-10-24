@@ -2,7 +2,7 @@
   "date": "2026-10-24",
   "stage": "local_self_hosted_web_workflow_verified",
   "tests": {
-    "passed": 22,
+    "passed": 24,
     "failed": 0
   },
   "browser": [
@@ -12,7 +12,8 @@
     "multiple case histories preserve private proofs",
     "source/version/date remain alongside manual reply",
     "two simultaneous queue labels have distinct IDs",
-    "translated Kazakh visitor chrome"
+    "translated Kazakh visitor chrome",
+    "admin operator disable/re-enable, long username wrapping, revoked operator returns to login"
   ],
   "widths": [
     1440,
@@ -22,11 +23,17 @@
   "review": {
     "initial": "fix",
     "final": "ship",
-    "scope": "four material fixes scored resolved; no new whole-surface review"
+    "scope": "four material fixes scored resolved; no new whole-surface review",
+    "access_extension": {
+      "final": "ship",
+      "report": "docs/access-finish-review.md",
+      "scope": "seven supplied captures and source; execution attributed to parent evidence, not external security audit"
+    }
   },
   "documentation": [
     "DESIGN.md",
-    ".impeccable/design.json"
+    ".impeccable/design.json",
+    "docs/access-design-documentation.md"
   ],
   "data": "synthetic_only",
   "public_server": false,

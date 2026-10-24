@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-24",
+  "tests": {
+    "passed": 24,
+    "failed": 0,
+    "runtime": "v24.19.0",
+    "output": "docs/test-output.txt"
+  },
+  "api_checks": [
+    {
+      "stage": "prepare",
+      "sessions": 2,
+      "authenticated": true
+    },
+    {
+      "stage": "disabled",
+      "old_session_statuses": [
+        401,
+        401
+      ],
+      "new_login_status": 401
+    },
+    {
+      "stage": "enabled",
+      "old_session_status": 401,
+      "fresh_login_status": 200
+    },
+    {
+      "stage": "disable-api",
+      "server_toggle_status": 200
+    },
+    {
+      "stage": "enable-api",
+      "server_toggle_status": 200
+    }
+  ],
+  "history": {
+    "cases": 5,
+    "sha256": "af0ecbaec50ef5a8b27a5b8a5b7e02a4ba45785a8261608502c40b889ecd6e0d",
+    "unchanged": true
+  },
+  "browser": {
+    "widths": [
+      1440,
+      1280,
+      390
+    ],
+    "screens": [
+      ".impeccable/review/access-active-desktop.jpg",
+      ".impeccable/review/access-active-mobile.jpg",
+      ".impeccable/review/access-active-user-1280.jpg",
+      ".impeccable/review/access-disabled-desktop.jpg",
+      ".impeccable/review/access-disabled-mobile.jpg",
+      ".impeccable/review/access-disabled-user-1280.jpg",
+      ".impeccable/review/operator-revoked.jpg"
+    ],
+    "observed": [
+      "admin disables and re-enables synthetic operator",
+      "operator has no admin access controls",
+      "revoked operator refresh returns to login and removes queue"
+    ],
+    "fixtures": "synthetic only; no credentials or databases published"
+  },
+  "limits": [
+    "Operator access only; administrator cannot be disabled through this screen",
+    "No password recovery UI",
+    "No public hosted server, load test or external security audit"
+  ]
+}

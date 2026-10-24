@@ -318,3 +318,196 @@ test("expired sessions and repeated wrong passwords are rejected", async (t) => 
   clock += 900001;
   assert.equal((await f.login()).result.status, 200);
 });
+
+test("admin can revoke every operator session without removing history; operators and visitors cannot change access", async (t) => {
+  const f = await fixture(t),
+    admin = await f.login();
+  assert.equal((await f.request("/api/users")).status, 401);
+  await f.request(
+    "/api/users",
+    "POST",
+    { username: "staff", password, role: "operator" },
+    admin.headers,
+  );
+  const first = await f.login("staff"),
+    second = await f.login("staff");
+  assert.equal(
+    (await f.request("/api/users", "GET", null, first.headers)).status,
+    403,
+  );
+  assert.equal(
+    (
+      await f.request(
+        "/api/users/staff/access",
+        "POST",
+        { enabled: false },
+        first.headers,
+      )
+    ).status,
+    403,
+  );
+  assert.equal(
+    (
+      await f.request(
+        "/api/users/admin/access",
+        "POST",
+        { enabled: false },
+        admin.headers,
+      )
+    ).status,
+    400,
+  );
+  assert.equal(
+    (
+      await f.request(
+        "/api/users/staff/access",
+        "POST",
+        { enabled: "false" },
+        admin.headers,
+      )
+    ).status,
+    400,
+  );
+  assert.equal(
+    (
+      await f.request(
+        "/api/users/staff/access",
+        "POST",
+        { enabled: false },
+        { Cookie: admin.headers.Cookie },
+      )
+    ).status,
+    403,
+  );
+  const original = await f.request("/api/ask", "POST", {
+    question: "Синтетическое обращение до отключения",
+    locale: "ru",
+  });
+  await f.request(
+    "/api/queue/" + original.data.id + "/resolve",
+    "POST",
+    { reply: "Синтетический ответ сохраняется." },
+    first.headers,
+  );
+  const history = f.desk.getCase(original.data.id);
+  assert.equal(
+    (
+      await f.request(
+        "/api/users/staff/access",
+        "POST",
+        { enabled: false },
+        admin.headers,
+      )
+    ).status,
+    200,
+  );
+  for (const staff of [first, second])
+    assert.equal(
+      (await f.request("/api/queue", "GET", null, staff.headers)).status,
+      401,
+    );
+  assert.equal((await f.login("staff")).result.status, 401);
+  const list = await f.request("/api/users", "GET", null, admin.headers);
+  assert.equal(
+    list.data.users.find((x) => x.username === "staff").enabled,
+    false,
+  );
+  assert.ok(!JSON.stringify(list.data).includes("password"));
+  assert.deepEqual(f.desk.getCase(original.data.id), history);
+  assert.equal(
+    (
+      await f.request(
+        "/api/users/staff/access",
+        "POST",
+        { enabled: true },
+        admin.headers,
+      )
+    ).status,
+    200,
+  );
+  assert.equal(
+    (await f.request("/api/queue", "GET", null, first.headers)).status,
+    401,
+    "re-enable must not revive old session",
+  );
+  assert.equal((await f.login("staff")).result.status, 200);
+  const events = f.desk.db
+    .prepare("SELECT actor,enabled FROM access_events ORDER BY rowid")
+    .all();
+  assert.deepEqual(
+    events.map((x) => [x.actor, x.enabled]),
+    [
+      ["admin", 0],
+      ["admin", 1],
+    ],
+  );
+});
+
+test("operator revocation remains effective after a real database restart", async () => {
+  const folder = mkdtempSync(join(tmpdir(), "derek-access-")),
+    database = join(folder, "desk.sqlite");
+  let current = createDeskServer({
+    database,
+    admin: { username: "admin", password },
+  });
+  await new Promise((resolve) =>
+    current.server.listen(0, "127.0.0.1", resolve),
+  );
+  const request = async (path, method = "GET", body, headers = {}) => {
+    const origin = "http://127.0.0.1:" + current.server.address().port;
+    const r = await fetch(origin + path, {
+      method,
+      headers: {
+        Origin: origin,
+        ...(body ? { "Content-Type": "application/json" } : {}),
+        ...headers,
+      },
+      ...(body ? { body: JSON.stringify(body) } : {}),
+    });
+    return { status: r.status, data: await r.json(), headers: r.headers };
+  };
+  try {
+    const auth = await request("/api/login", "POST", {
+        username: "admin",
+        password,
+      }),
+      headers = {
+        Cookie: auth.headers.get("set-cookie").split(";")[0],
+        "X-CSRF-Token": auth.data.user.csrf,
+      };
+    await request(
+      "/api/users",
+      "POST",
+      { username: "staff", password, role: "operator" },
+      headers,
+    );
+    await request(
+      "/api/users/staff/access",
+      "POST",
+      { enabled: false },
+      headers,
+    );
+    await new Promise((resolve) => current.server.close(resolve));
+    current = createDeskServer({ database });
+    await new Promise((resolve) =>
+      current.server.listen(0, "127.0.0.1", resolve),
+    );
+    assert.equal(
+      (await request("/api/login", "POST", { username: "staff", password }))
+        .status,
+      401,
+    );
+    assert.equal(
+      (await request("/api/login", "POST", { username: "admin", password }))
+        .status,
+      200,
+    );
+    assert.equal(
+      current.desk.db.prepare("SELECT count(*) n FROM access_events").get().n,
+      1,
+    );
+  } finally {
+    await new Promise((resolve) => current.server.close(resolve));
+    rmSync(folder, { recursive: true, force: true });
+  }
+});
