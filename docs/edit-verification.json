@@ -1,0 +1,197 @@
+{
+  "date": "2026-10-25",
+  "product": "DerekDesk",
+  "baseline": {
+    "stale_edit_overwrote_newer_answer": true,
+    "stale_approval_approved_newer_unreviewed_version": true,
+    "last_version": 4,
+    "events": 9,
+    "cases": 3
+  },
+  "scope": "Article edit/approval version conflict boundary;not fresh whole-interface/security audit",
+  "tests": {
+    "passed": 27,
+    "added": 3,
+    "baseline_failed": 3,
+    "old_tests": 24,
+    "file_restart_and_sqlite_snapshot": true
+  },
+  "http": {
+    "all14_refusals_preserved_articles_cases_events": true,
+    "version": 4,
+    "events": 9,
+    "cases": 3,
+    "results": [
+      {
+        "kind": "missing",
+        "operation": "edit",
+        "status": 400,
+        "error": "Передайте целую положительную expectedVersion. Обновите кабинет перед изменением."
+      },
+      {
+        "kind": "missing",
+        "operation": "approve",
+        "status": 400,
+        "error": "Передайте целую положительную expectedVersion. Обновите кабинет перед одобрением."
+      },
+      {
+        "kind": "null",
+        "operation": "edit",
+        "status": 400,
+        "error": "Передайте целую положительную expectedVersion. Обновите кабинет перед изменением."
+      },
+      {
+        "kind": "null",
+        "operation": "approve",
+        "status": 400,
+        "error": "Передайте целую положительную expectedVersion. Обновите кабинет перед одобрением."
+      },
+      {
+        "kind": "zero",
+        "operation": "edit",
+        "status": 400,
+        "error": "Передайте целую положительную expectedVersion. Обновите кабинет перед изменением."
+      },
+      {
+        "kind": "zero",
+        "operation": "approve",
+        "status": 400,
+        "error": "Передайте целую положительную expectedVersion. Обновите кабинет перед одобрением."
+      },
+      {
+        "kind": "negative",
+        "operation": "edit",
+        "status": 400,
+        "error": "Передайте целую положительную expectedVersion. Обновите кабинет перед изменением."
+      },
+      {
+        "kind": "negative",
+        "operation": "approve",
+        "status": 400,
+        "error": "Передайте целую положительную expectedVersion. Обновите кабинет перед одобрением."
+      },
+      {
+        "kind": "fraction",
+        "operation": "edit",
+        "status": 400,
+        "error": "Передайте целую положительную expectedVersion. Обновите кабинет перед изменением."
+      },
+      {
+        "kind": "fraction",
+        "operation": "approve",
+        "status": 400,
+        "error": "Передайте целую положительную expectedVersion. Обновите кабинет перед одобрением."
+      },
+      {
+        "kind": "string",
+        "operation": "edit",
+        "status": 400,
+        "error": "Передайте целую положительную expectedVersion. Обновите кабинет перед изменением."
+      },
+      {
+        "kind": "string",
+        "operation": "approve",
+        "status": 400,
+        "error": "Передайте целую положительную expectedVersion. Обновите кабинет перед одобрением."
+      },
+      {
+        "kind": "stale",
+        "operation": "edit",
+        "status": 409,
+        "error": "Материал изменился в другой вкладке. Сохраните введённый текст отдельно, обновите список и проверьте текущую версию."
+      },
+      {
+        "kind": "stale",
+        "operation": "approve",
+        "status": 409,
+        "error": "Материал изменился в другой вкладке. Сохраните введённый текст отдельно, обновите список и проверьте текущую версию."
+      }
+    ]
+  },
+  "browser": {
+    "stale_edit_refused": true,
+    "newer_version_retained": true,
+    "typed_text_retained": "SYNTHETIC stale text kept in editor",
+    "approval_refusal": {
+      "entire_articles_cases_events_unchanged": true,
+      "version": 6,
+      "events": 11,
+      "cases": 3,
+      "status": "draft",
+      "stale_edit_text_retained": "SYNTHETIC stale text kept in editor"
+    },
+    "completed": {
+      "version": 6,
+      "status": "approved",
+      "events": 13,
+      "cases": 4,
+      "three_original_case_payloads_unchanged": true,
+      "new_answer_latest_version": true,
+      "article": {
+        "id": "b3a92781-f5dc-4235-865d-ee610190b1f6",
+        "version": 6,
+        "status": "approved",
+        "audience": "public",
+        "ru": {
+          "title": "SYNTHETIC current article",
+          "answer": "SYNTHETIC protected newer RU v6",
+          "aliases": [
+            "synthetic question"
+          ]
+        },
+        "kk": {
+          "title": "SYNTHETIC ереже",
+          "answer": "SYNTHETIC бастапқы жауап",
+          "aliases": [
+            "synthetic сұрақ"
+          ]
+        },
+        "source": {
+          "title": "SYNTHETIC own source",
+          "url": "https://example.org/synthetic",
+          "excerpt": "SYNTHETIC original source fragment",
+          "verifiedAt": "2026-10-24T00:00:00.000Z",
+          "validUntil": "2099-12-31T00:00:00.000Z"
+        },
+        "createdAt": "2026-10-25T07:13:49.430Z",
+        "updatedAt": "2026-10-25T07:18:00.702Z",
+        "approvedAt": "2026-10-25T07:18:00.702Z",
+        "approvedBy": "admin"
+      }
+    }
+  },
+  "rules": [
+    "PUT article and POST approval require positive safe integer expectedVersion;invalid/missing =>400.",
+    "Version compare/current article read/write happen in one BEGIN IMMEDIATE transaction;mismatch =>409 before article/case/event changes.",
+    "Edit increments content version and resets approval;approval requires the version displayed in its originating list.",
+    "After conflict old form input remains visible;return/refresh and reconcile deliberately. No automatic merge.",
+    "Direct in-process KnowledgeDesk callers retain optional version precondition for compatibility;HTTP clients cannot omit it."
+  ],
+  "limits": [
+    "Version token protects content edits;approval itself does not increment content version. Reapproval of the same content remains possible.",
+    "No immutable complete article revision archive added;existing case source snapshots retained.",
+    "Old cached clients must reload to send expectedVersion. No server/cloud/CRM/WhatsApp integrations or customer acceptance added."
+  ],
+  "runtime": {
+    "checked_at": "2026-10-25T07:23:01.618Z",
+    "old_derek_pid": 55595,
+    "new_derek_pid": 98157,
+    "owned_cwd_command_checked": true,
+    "all_main_derek_tables_unchanged": true,
+    "main_cases": 5,
+    "batch_pid": 93310,
+    "batch_restarted": false,
+    "batch_18_states_unchanged": true,
+    "app_js_sha256": "073fd69d10fe10bad3cf9981c51720f68ce45f8a943a17626f3c30f3086a72b0",
+    "status": 200,
+    "scope": "Owned process restart and static identity,not whole security audit"
+  },
+  "runtime_record": "work/program/runtime-reloads/derekdesk-edit-20261025",
+  "screens": [
+    "edit-before.jpg",
+    "approve-before.jpg",
+    "edit-refused.jpg",
+    "approve-refused.jpg",
+    "edit-latest-answer.jpg"
+  ]
+}

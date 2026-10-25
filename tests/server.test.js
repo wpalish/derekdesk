@@ -206,7 +206,7 @@ test("public ask ignores forged staff audience and strips internal article snaps
   await f.request(
     `/api/articles/${stored.data.id}/approve`,
     "POST",
-    {},
+    { expectedVersion: 1 },
     admin.headers,
   );
   const question = await f.request("/api/ask", "POST", {
@@ -221,7 +221,7 @@ test("public ask ignores forged staff audience and strips internal article snaps
   await f.request(
     `/api/articles/${p.data.id}/approve`,
     "POST",
-    {},
+    { expectedVersion: 1 },
     admin.headers,
   );
   const answer = await f.request("/api/ask", "POST", {
@@ -243,7 +243,7 @@ test("knowledge backup restoration validates atomically and resets imported appr
   await f.request(
     `/api/articles/${created.data.id}/approve`,
     "POST",
-    {},
+    { expectedVersion: 1 },
     admin.headers,
   );
   const backup = await f.request("/api/backup", "GET", null, admin.headers);

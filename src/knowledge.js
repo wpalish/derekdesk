@@ -62,6 +62,18 @@ function matching(article, locale, query) {
   return article[locale].aliases.some(alias => question.includes(` ${normalize(alias)} `));
 }
 
+function checkArticleVersion(article, expectedVersion) {
+  if (expectedVersion === undefined) return;
+  if (!Number.isSafeInteger(expectedVersion) || expectedVersion < 1) {
+    throw new Error('Укажите целую положительную версию материала.');
+  }
+  if (article.version !== expectedVersion) {
+    const error = new Error('Материал изменился в другой вкладке. Сохраните введённый текст отдельно, обновите список и проверьте текущую версию.');
+    error.status = 409;
+    throw error;
+  }
+}
+
 export class KnowledgeDesk {
   constructor(path = ':memory:') {
     this.db = new DatabaseSync(path);
@@ -131,10 +143,11 @@ export class KnowledgeDesk {
     });
   }
 
-  approveArticle(id, actor, now = new Date().toISOString()) {
-    const article = this._article(id);
-    if (article.source.validUntil <= date(now)) throw new Error('Истёк срок актуальности. Обновите источник перед одобрением.');
+  approveArticle(id, actor, now = new Date().toISOString(), expectedVersion) {
     return this._transaction(() => {
+      const article = this._article(id);
+      checkArticleVersion(article, expectedVersion);
+      if (article.source.validUntil <= date(now)) throw new Error('Истёк срок актуальности. Обновите источник перед одобрением.');
       article.status = 'approved'; article.approvedAt = date(now); article.approvedBy = text(actor, 'Проверил', 1, 120);
       article.updatedAt = date(now); this._writeArticle(article); this._event(id, 'article.approved', now, actor);
       return copy(article);
@@ -142,9 +155,11 @@ export class KnowledgeDesk {
   }
 
   editArticle(id, input, actor, now = new Date().toISOString()) {
-    const current = this._article(id), updated = makeArticle(input, now);
-    Object.assign(updated, {id: current.id, version: current.version + 1, createdAt: current.createdAt});
     return this._transaction(() => {
+      const current = this._article(id);
+      checkArticleVersion(current, input?.expectedVersion);
+      const updated = makeArticle(input, now);
+      Object.assign(updated, {id: current.id, version: current.version + 1, createdAt: current.createdAt});
       this._writeArticle(updated); this._event(id, 'article.edited_approval_reset', now, actor); return copy(updated);
     });
   }

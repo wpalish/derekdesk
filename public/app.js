@@ -454,7 +454,7 @@ async function workspace() {
       if (article.status !== "approved" && !expired)
         actions.append(
           button("Одобрить", async () => {
-            await api(`/api/articles/${article.id}/approve`, "POST", {});
+            await api(`/api/articles/${article.id}/approve`, "POST", { expectedVersion: article.version });
             await workspace();
           }),
         );
@@ -512,7 +512,7 @@ function articleForm(article) {
     E("h1", article ? "Изменить материал" : "Новый материал"),
     E(
       "p",
-      "После сохранения материал становится черновиком. Проверяйте переводы и источник перед одобрением.",
+      (article ? `Редактируете v${article.version}. ` : "") + "После сохранения материал становится черновиком. Проверяйте переводы и источник перед одобрением.",
     ),
   );
   const form = E("form", undefined, "panel");
@@ -606,6 +606,7 @@ function articleForm(article) {
             }
           : null;
       const input = {
+        ...(article ? { expectedVersion: article.version } : {}),
         audience: data.audience,
         ru: content("ru"),
         kk: content("kk"),

@@ -1,154 +1,172 @@
 TAP version 13
-# Subtest: draft knowledge never answers a visitor; the question enters the operator queue
-ok 1 - draft knowledge never answers a visitor; the question enters the operator queue
+# Subtest: stale edit and approval cannot overwrite or approve a newer article;old case evidence is preserved
+ok 1 - stale edit and approval cannot overwrite or approve a newer article;old case evidence is preserved
   ---
-  duration_ms: 3.00225
+  duration_ms: 4.960458
+  type: 'test'
+  ...
+# Subtest: HTTP edits and approvals require a version;stale writes return409 without changing any article,case or event
+ok 2 - HTTP edits and approvals require a version;stale writes return409 without changing any article,case or event
+  ---
+  duration_ms: 93.452417
+  type: 'test'
+  ...
+# Subtest: file restart and SQLite snapshot retain current article version,old case evidence and stale-write guards
+ok 3 - file restart and SQLite snapshot retain current article version,old case evidence and stale-write guards
+  ---
+  duration_ms: 7.647709
+  type: 'test'
+  ...
+# Subtest: draft knowledge never answers a visitor; the question enters the operator queue
+ok 4 - draft knowledge never answers a visitor; the question enters the operator queue
+  ---
+  duration_ms: 4.572083
   type: 'test'
   ...
 # Subtest: RU and KK return the exact approved text and its source, not generated claims
-ok 2 - RU and KK return the exact approved text and its source, not generated claims
+ok 5 - RU and KK return the exact approved text and its source, not generated claims
   ---
-  duration_ms: 0.766375
+  duration_ms: 1.122459
   type: 'test'
   ...
 # Subtest: a missing translation routes to a person rather than inventing translated policy
-ok 3 - a missing translation routes to a person rather than inventing translated policy
+ok 6 - a missing translation routes to a person rather than inventing translated policy
   ---
-  duration_ms: 0.260625
+  duration_ms: 0.510833
   type: 'test'
   ...
 # Subtest: expired material is excluded and cannot be approved without a new review
-ok 4 - expired material is excluded and cannot be approved without a new review
+ok 7 - expired material is excluded and cannot be approved without a new review
   ---
-  duration_ms: 0.348542
+  duration_ms: 0.452209
   type: 'test'
   ...
 # Subtest: an edit revokes approval and preserves the old answer and evidence snapshot
-ok 5 - an edit revokes approval and preserves the old answer and evidence snapshot
+ok 8 - an edit revokes approval and preserves the old answer and evidence snapshot
   ---
-  duration_ms: 0.544583
+  duration_ms: 0.459459
   type: 'test'
   ...
 # Subtest: staff-only content never enters public retrieval
-ok 6 - staff-only content never enters public retrieval
+ok 9 - staff-only content never enters public retrieval
   ---
-  duration_ms: 0.271
+  duration_ms: 0.283042
   type: 'test'
   ...
 # Subtest: two matching approved answers cause a visible handoff rather than an arbitrary winner
-ok 7 - two matching approved answers cause a visible handoff rather than an arbitrary winner
+ok 10 - two matching approved answers cause a visible handoff rather than an arbitrary winner
   ---
-  duration_ms: 0.500583
+  duration_ms: 0.468
   type: 'test'
   ...
 # Subtest: a visitor can request a person after a found answer; resolution records who replied
-ok 8 - a visitor can request a person after a found answer; resolution records who replied
+ok 11 - a visitor can request a person after a found answer; resolution records who replied
   ---
-  duration_ms: 0.552584
+  duration_ms: 0.587875
   type: 'test'
   ...
 # Subtest: invalid batch imports make no partial changes and imported approval cannot bypass review
-ok 9 - invalid batch imports make no partial changes and imported approval cannot bypass review
+ok 12 - invalid batch imports make no partial changes and imported approval cannot bypass review
   ---
-  duration_ms: 0.262291
+  duration_ms: 0.272541
   type: 'test'
   ...
 # Subtest: closing and reopening a file database preserves approved evidence and queued cases
-ok 10 - closing and reopening a file database preserves approved evidence and queued cases
+ok 13 - closing and reopening a file database preserves approved evidence and queued cases
   ---
-  duration_ms: 4.818625
+  duration_ms: 6.929167
   type: 'test'
   ...
 # Subtest: unsafe source links, future verification, and meaningless aliases are rejected
-ok 11 - unsafe source links, future verification, and meaningless aliases are rejected
+ok 14 - unsafe source links, future verification, and meaningless aliases are rejected
   ---
-  duration_ms: 0.324375
+  duration_ms: 0.679916
   type: 'test'
   ...
 # Subtest: an unrelated SQLite database is rejected without changing its contents
-ok 12 - an unrelated SQLite database is rejected without changing its contents
+ok 15 - an unrelated SQLite database is rejected without changing its contents
   ---
-  duration_ms: 2.48925
+  duration_ms: 2.140542
   type: 'test'
   ...
 # Subtest: a future DerekDesk schema is rejected rather than silently downgraded
-ok 13 - a future DerekDesk schema is rejected rather than silently downgraded
+ok 16 - a future DerekDesk schema is rejected rather than silently downgraded
   ---
-  duration_ms: 3.041
+  duration_ms: 5.707291
   type: 'test'
   ...
 # Subtest: anonymous visitors cannot read knowledge, queue, backup or create users
-ok 14 - anonymous visitors cannot read knowledge, queue, backup or create users
+ok 17 - anonymous visitors cannot read knowledge, queue, backup or create users
   ---
-  duration_ms: 42.006083
+  duration_ms: 47.034667
   type: 'test'
   ...
 # Subtest: origin and CSRF checks guard session mutations; cookie is HttpOnly and same-site
-ok 15 - origin and CSRF checks guard session mutations; cookie is HttpOnly and same-site
+ok 18 - origin and CSRF checks guard session mutations; cookie is HttpOnly and same-site
   ---
-  duration_ms: 55.518958
+  duration_ms: 57.982209
   type: 'test'
   ...
 # Subtest: operator can resolve a real queue entry but cannot approve knowledge or add accounts
-ok 16 - operator can resolve a real queue entry but cannot approve knowledge or add accounts
+ok 19 - operator can resolve a real queue entry but cannot approve knowledge or add accounts
   ---
-  duration_ms: 96.154875
+  duration_ms: 92.512875
   type: 'test'
   ...
 # Subtest: case UUID alone and another visitor token do not expose a conversation
-ok 17 - case UUID alone and another visitor token do not expose a conversation
+ok 20 - case UUID alone and another visitor token do not expose a conversation
   ---
-  duration_ms: 29.67175
+  duration_ms: 27.313292
   type: 'test'
   ...
 # Subtest: public ask ignores forged staff audience and strips internal article snapshots
-ok 18 - public ask ignores forged staff audience and strips internal article snapshots
+ok 21 - public ask ignores forged staff audience and strips internal article snapshots
   ---
-  duration_ms: 51.480459
+  duration_ms: 48.558583
   type: 'test'
   ...
 # Subtest: knowledge backup restoration validates atomically and resets imported approval
-ok 19 - knowledge backup restoration validates atomically and resets imported approval
+ok 22 - knowledge backup restoration validates atomically and resets imported approval
   ---
-  duration_ms: 47.773667
+  duration_ms: 47.339833
   type: 'test'
   ...
 # Subtest: server restart preserves case proof, operator reply and approved source
-ok 20 - server restart preserves case proof, operator reply and approved source
+ok 23 - server restart preserves case proof, operator reply and approved source
   ---
-  duration_ms: 24.337458
+  duration_ms: 25.852042
   type: 'test'
   ...
 # Subtest: expired sessions and repeated wrong passwords are rejected
-ok 21 - expired sessions and repeated wrong passwords are rejected
+ok 24 - expired sessions and repeated wrong passwords are rejected
   ---
-  duration_ms: 168.633666
+  duration_ms: 167.359667
   type: 'test'
   ...
 # Subtest: admin can revoke every operator session without removing history; operators and visitors cannot change access
-ok 22 - admin can revoke every operator session without removing history; operators and visitors cannot change access
+ok 25 - admin can revoke every operator session without removing history; operators and visitors cannot change access
   ---
-  duration_ms: 142.460792
+  duration_ms: 145.364709
   type: 'test'
   ...
 # Subtest: operator revocation remains effective after a real database restart
-ok 23 - operator revocation remains effective after a real database restart
+ok 26 - operator revocation remains effective after a real database restart
   ---
-  duration_ms: 84.599417
+  duration_ms: 87.475042
   type: 'test'
   ...
 # Subtest: online snapshot preserves a WAL-backed case and refuses to overwrite an existing backup
-ok 24 - online snapshot preserves a WAL-backed case and refuses to overwrite an existing backup
+ok 27 - online snapshot preserves a WAL-backed case and refuses to overwrite an existing backup
   ---
-  duration_ms: 5.748292
+  duration_ms: 10.858708
   type: 'test'
   ...
-1..24
-# tests 24
+1..27
+# tests 27
 # suites 0
-# pass 24
+# pass 27
 # fail 0
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 790.208417
+# duration_ms 801.895958

@@ -333,16 +333,20 @@ export function createDeskServer({
         /^\/api\/articles\/([a-f0-9-]+)(\/approve)?$/,
       );
       if (article && method === "PUT" && !article[2]) {
-        const user = authorize(req, "admin");
+        const user = authorize(req, "admin"), input = await jsonBody(req);
+        if (!Number.isSafeInteger(input?.expectedVersion) || input.expectedVersion < 1)
+          throw failure(400, "Передайте целую положительную expectedVersion. Обновите кабинет перед изменением.");
         return send(
           res,
           200,
-          desk.editArticle(article[1], await jsonBody(req), user.username),
+          desk.editArticle(article[1], input, user.username),
         );
       }
       if (article && method === "POST" && article[2]) {
-        const user = authorize(req, "admin");
-        return send(res, 200, desk.approveArticle(article[1], user.username));
+        const user = authorize(req, "admin"), input = await jsonBody(req);
+        if (!Number.isSafeInteger(input?.expectedVersion) || input.expectedVersion < 1)
+          throw failure(400, "Передайте целую положительную expectedVersion. Обновите кабинет перед одобрением.");
+        return send(res, 200, desk.approveArticle(article[1], user.username, undefined, input.expectedVersion));
       }
       if (method === "POST" && route === "/api/ask") {
         limited(`ask:${req.socket.remoteAddress}`, 30);
